@@ -54,6 +54,10 @@ Lastly, I developed and connected the Blynk app for monitoring the location and 
 
 The Fritzing wiring diagram is shown below. The exact GPS antenna used in the SpeedSpy prototype has no official Fritzing schematic, so an approximate replacement is shown.
 
+Interestingly, to exchange data, the GPS need only have its `TX` pin connected to the Photon's `RX` pin along with basic power. The Fix LED requires no code, as it will simply mirror the onboard GPS fix light through the `FIX` pin. The antenna connects to the onboard GPS uFL port.
+
+The amplifier requires two ground connections, one for the speaker and one for the amplifier (enables volume potentiometer). The speaker tone is driven through the connection between the Photon's `D2` pin and the amplifier's `A+` pin. The speaker is then connected to the amplifier.
+
 ![Wiring diagram](images/wiring.jpg)
 
 ##### Hardware
