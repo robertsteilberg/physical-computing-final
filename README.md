@@ -6,7 +6,7 @@
 
 *Date:* 12 December 2017
 
-*_Note:_* GitHub's markdown doesn't always display image orientation correctly. Some images may be upside-down.
+**_Note:_** GitHub's markdown doesn't always display image orientation correctly. Some images may be upside-down.
 
 ## Project: SpeedSpy / Particle Photon
 
@@ -42,7 +42,7 @@ SpeedSpy is responding to a frequent and common problem--speeding. Most drivers 
 
 ##### Development process
 
-I began by configuring the GPS to print basic locational information to the serial console. This is achieved through interrupts that make a call to the GPS every two seconds. After I was able to successfully retrieve and store data from the GPS on the Photon, I geofenced several streets by plotting the series of latitude and longitude points that constructed a polygon covering the specific street. A custom `street` type definition was created to store these points. The `street` typdef, which can be viewed [here](code/street.h), stores the latitude and longitude points of the geofenced polygon, the street's name, and its speed limit. I then found an algorithm (sourced from [this webpage](http://alienryderflex.com/polygon/)) for determining whether the current location is within a geofence. Ultimately, I assimilated all of this data and used it to compute where the vehicle was located, its speed, and if it was exceeding the speed limit, thus forming the core functionality of SpeedSpy.
+I began by configuring the GPS to print basic locational information to the serial console. This is achieved through interrupts that make a call to the GPS every two seconds. After I was able to successfully retrieve and store data from the GPS on the Photon, I geofenced several streets by plotting the series of latitude and longitude points that constructed a polygon covering the specific street. A custom `street` type definition was created to store these points. The `street` typdef, which can be viewed [here](code/street.h), stores the latitude and longitude points of the geofenced polygon, the street's name, and its speed limit. I then found an algorithm (sourced from [this webpage](http://alienryderflex.com/polygon/)) for determining whether the current location is within a complex geofence. Ultimately, I assimilated all of this data and used it to compute where the vehicle was located, its speed, and if it was exceeding the speed limit, thus forming the core functionality of SpeedSpy.
 
 Once I had fully developed the basic functionality, I installed an amplifier and speaker for sounding the tone alert when it was determined that the vehicle was speeding. I then wrote logic for sounding a certain note on the C-major scale depending on the degree to which the vehicle was speeding.
 
@@ -60,7 +60,7 @@ The Fritzing wiring diagram is shown below. The exact GPS antenna used in the Sp
 
 The [Particle Photon](https://store.particle.io/products/photon) runs SpeedSpy's firmware, connects to the internet and interfaces with [Blynk](http://www.blynk.cc/), and handles reading from the GPS and driving the speaker. The Photon is powered by the vehicle's stereo via USB. WiFi connectivity and Blynk functionality is provided via a tethered cell phone.
 
-The [Adafruit Ultimate GPS](https://www.adafruit.com/product/746) is a GPS board that is powered by the Photon and delivers data containing location and speed. Its ability to acquire a satellite fix is enhanced through connection to an [external antenna](https://www.adafruit.com/product/960) via a [SMA to uFL](https://www.adafruit.com/product/851) adapter.
+The [Adafruit Ultimate GPS](https://www.adafruit.com/product/746) is a GPS board that is powered by the Photon and delivers data containing location and speed. Its ability to acquire a satellite fix is enhanced through connection to an [external antenna](https://www.adafruit.com/product/960) via a [SMA to uFL adapter](https://www.adafruit.com/product/851).
 
 The [4-ohm speaker](https://www.adafruit.com/product/1314) is driven by an [amplifier](https://www.adafruit.com/product/2130) that allows for volume control via an onboard trim potentiometer.
 
@@ -123,7 +123,7 @@ The latitude/longitude pairs that define the street's geofence are stored as an 
 
 ![Geofences](images/geofences.png)
 
-Each street is individually geofenced as shown in the diagram by setting a series of X and Y coordinate points that represent the latitude/longitude pairs that compose the polygon that geofences each street. A name and speed limit is set for each street, and then all geofenced streets are stored in a `street` array.
+Each street is individually geofenced as shown in the diagram by setting a series of X and Y coordinate points that represent the latitude/longitude pairs that compose the polygon that geofences each street. A name and speed limit is set for each street, and all geofenced streets are then stored in a `street` array, `streets`.
 
 The speaker is then initialized and the Blynk instance is authorized for sending and receiving data.
 
@@ -160,7 +160,7 @@ As shown above, if the given latitude/longitude pair is indeed located on the st
 
 If no street is found containing the current latitude/longitude pair, no speed limit will be defined, so the speaker is silenced and `loop()` returns, similar to when there is no satellite fix.
 
-One potential bug introduced by this algorithm (that could be resolved in a production release of this project) is the case where two geofences overlap. In this case, the `street` containing the point that is the closest towards the end of the `streets` array will have its speed limit chosen, which could potentially not reflect the actual street on which the vehicle is located.
+One potential bug introduced by this algorithm (that should be resolved in a production release of this project) is the case where two geofences overlap. In this case, the `street` that both has the greatest index in the `streets` array and contains the current latitude/longitude point will have its speed limit chosen, which could potentially not reflect the actual street on which the vehicle is actually located.
 
 Assuming there is a fix and a defined speed limit, the current speed from the GPS is compared against the speed limit. How large the difference is between the current speed and speed limit determines the frequency of the tone emitted from the speaker. Furthermore, `alarm()` will only sound the speaker if SpeedSpy has not been muted from the Blynk app.
 
@@ -186,7 +186,7 @@ After comparing the current speed to the speed limit and sounding the alarm if n
 
 My goal in designing the hardware form for this project was minimal impact on the original aesthetic of my car. I wanted the entire device and all of its components to be hidden from view, entirely contained within the innards of my car. I needed to go as small as possible, and to achieve this, I decided to use a Particle Photon that I had acquired during a Co-Lab course on IoT. I set the Photon, amplifier, and GPS board all within the constraints of a single mini breadboard, with the only external connections being the speaker, GPS antenna, and fix LED. The USB power cable is routed within the console into the back of the stereo. The only component visible is the fix LED, which pokes out of the console, as highlighted below.
 
-![Fix LED](images/fix_led.png)
+![Fix LED](images/fix_led.jpg)
 
 As shown above, when the console is put back together, the car looks completely normal. Yet, SpeedSpy will automatically engage once the stereo is powered, provided there is an enabled hotspot in the vicinity.
 
