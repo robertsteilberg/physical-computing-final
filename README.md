@@ -184,17 +184,17 @@ After comparing the current speed to the speed limit and sounding the alarm if n
 
 ### Design / Form
 
-My goal in designing the hardware form for this project was minimal impact on the original aesthetic of my car. I wanted the entire device and all of its components to be hidden from view, entirely contained within the innards of my car. I needed to go as small as possible, and to achieve this, I decided to use a Particle Photon that I had acquired during a Co-Lab course on IoT. I set the Photon, amplifier, and GPS board all within the constraints of a single mini breadboard, with the only external connections being the speaker, GPS antenna, and fix LED. The USB power cable is routed within the console into the back of the stereo. The only component visible is the fix LED, which pokes out of the console, as highlighted below.
+My goal in designing the hardware form for this project was minimal impact on the original aesthetic of my car. I wanted the entire device and all of its components to be hidden from view, entirely contained within the innards of my car. I needed to go as small as possible, and to achieve this, I decided to use a Particle Photon that I had acquired during a Co-Lab course on IoT. I set the Photon, amplifier, and GPS board all within the constraints of a single mini breadboard, with the only external connections being the speaker, GPS antenna, and fix LED. The USB power cable is routed within the console into the back of the stereo. The only visible component is the fix LED, which pokes out of the console, as highlighted below.
 
 ![Fix LED](images/fix_led.jpg)
 
 As shown above, when the console is put back together, the car looks completely normal. Yet, SpeedSpy will automatically engage once the stereo is powered, provided there is an enabled hotspot in the vicinity.
 
-I also value an intuitive user experience; I want any user to be able to easily view data provided by SpeedSpy and provide some control as well. My goal in designing the Blynk app was to make the user interface as clean and intuitive as possible while simultaneously providing the most useful information. As shown below, the Blynk app cleanly displays location and speed information, allows simple muting of the alarm, and even provides some debugging capabilities in terms of the Fix and Speeding indicator LED widgets.
+I also value an intuitive user interface experience. I wanted any user to be able to easily view data provided by SpeedSpy and provide some control as well. My goal in designing the Blynk app was to make the user interface as clean and intuitive as possible while simultaneously providing the most useful information. As shown below, the Blynk app cleanly displays location and speed information, allows simple muting of the alarm, and even provides some debugging capabilities in terms of the Fix and Speeding indicator LED widgets.
 
 ![Blynk app](images/blynk.png)
 
-I always emphasize function over form when I design technological products. I wanted SpeedSpy to be a seamless integration with my vehicle, which is what this setup achieves. In this way, the unique aesthetic of the IoT device is lost, but the original aesthetic of my car is preserved, which has always been my goal for the custom improvements that I have made to it (installing an iPod integration, painting window sidings, switching out interior lights for LEDs, et cetera). Regardless, the unique functionality of the IoT is preserved.
+I always emphasize function over form when I design a technological product. I wanted SpeedSpy to be a seamless integration with my vehicle, which is what this setup achieves. In this way, the unique aesthetic of the IoT device is lost, but the original aesthetic of my car is preserved, which has always been my goal for the custom improvements that I have made to my car (installing an iPod integration, painting window sidings, switching out interior lights for LEDs, et cetera). Regardless, the unique functionality of the IoT device is preserved.
 
 The rest of the components are nestled between the carpeting and inner console, as shown below.
 
