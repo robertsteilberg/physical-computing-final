@@ -72,7 +72,7 @@ Lastly, an external LED is connected to the `FIX` pin of the GPS board to allow 
 
 Shown below are the connected hardware components of SpeedSpy outside of the vehicle's console enclosure.
 
-![Hardware](images/hardware.jpg)
+![Hardware](images/hardware.png)
 
 The main breadboard with the Photon, amplifier, and GPS unit installed is show below.
 
