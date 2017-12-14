@@ -6,8 +6,6 @@
 
 *Date:* 12 December 2017
 
-**_Note:_** GitHub's markdown doesn't always display image orientation correctly. Some images may be upside-down.
-
 ## Project: SpeedSpy / Particle Photon
 
 SpeedSpy is aimed at correcting (or monitoring) one of the most common driver habits: excessive speeding. The project consists of a Particle Photon configured with an Adafruit Ultimate GPS Breakout and external antenna, a 4-ohm speaker, an external LED, and an Adafruit Mono 2.5W Class D Audio Amplifier. Together, along with a Blynk app integration, SpeedSpy monitors your vehicle's location and speed, pushes that information to the Blynk app, and emits a shrill alert via the speaker when the speed limit for the current road is exceeded.
