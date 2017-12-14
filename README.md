@@ -76,7 +76,7 @@ Shown below are the connected hardware components of SpeedSpy outside of the veh
 
 The main breadboard with the Photon, amplifier, and GPS unit installed is show below.
 
-![Breadboard](images/breadboard.jpg)
+![Breadboard](images/breadboard.png)
 
 ##### Software
 
@@ -202,11 +202,11 @@ I always emphasize function over form when I design a technological product. I w
 
 The rest of the components are nestled between the carpeting and inner console, as shown below.
 
-![SpeedSpy installation](images/installation.jpg)
+![SpeedSpy installation](images/installation.png)
 
 The placement of the external antenna is shown below.
 
-![SpeedSpy antenna](images/antenna.jpg)
+![SpeedSpy antenna](images/antenna.png)
 
 
 ### Evaluation / Reflection
